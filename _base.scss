@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@500&display=swap');
+
+@keyframes aniGradient {
+	0% {background-position: 0% 50%;}
+	50% {background-position: 100% 50%;}
+	100% {background-position: 0% 50%;}
+}
+*, ::before, ::after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:root {
+	--font-face: 'Hind', 'Helvetica Neue', Helvetica, sans-serif;
+	--font-size: 1.1rem;
+	--line-h: 1.5;
+	--transition: all 0.15s ease;
+	--clr-0: #18191c;
+	--clr-1: #fee;
+	--clr-2: #9a53a3;
+	--clr-3: #5bb974;
+	--clr-4: #669df6;
+	--clr-5: #ee675c;
+	--clr-07: rgba(24, 25, 28, .7);
+	--clr-05: rgba(24, 25, 28, .5);
+	--clr-03: rgba(24, 25, 28, .3);
+	--clr-17: rgba(255, 238, 238, .7);
+	--clr-15: rgba(255, 238, 238, .5);
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+%clearfix {
+	display: table;
+	content: ' ';
+}
+.clear::before { @extend %clearfix;}
+.clear::after { @extend %clearfix; clear: both;}
+.none{display: none !important }
+.hide {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+.m0 {margin:0}
+.mt0 {margin-top:0}
+.mb0 {margin-bottom:0}
+.mt1 {margin-top:1rem}
+.mb1 {margin-bottom:1rem}
+.mt2 {margin-top:2rem}
+.mb2 {margin-bottom:2rem}
+.abs {position: absolute}
+.relative {position: relative}
+.text-center {text-align: center}
+body {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(132deg, #7f53a3, #478f7d);
+	background-color: #7f53a3;
+	background-size: 400%;
+	animation: aniGradient 10s ease infinite;
+	font-family: var(--font-face);
+	font-size: var(--font-size);
+	color: var(--clr-07);
+	line-height: var(--line-h);
+}
+a {
+	color: var(--clr-1);
+	outline: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+.wrapper {
+	width: 28rem;
+	min-height: 40vh;
+	margin: 2rem 1rem;
+	& header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2.4rem;
+		& h2 {
+			font-weight: 900;
+			font-size: 1.6rem;
+			margin: 0;
+			padding: 0;
+			line-height: 1;
+			flex-grow: 1;
+		}
+		& .reg {text-align: right;}
+		& .link {
+			background: var(--clr-3);
+			text-decoration: none;
+			border-radius: 4rem;
+			font-size: 80%;
+			padding: .6rem 1rem;
+			position: relative;
+			text-align: center;
+			outline: none;
+		}
+	}
+}
