@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Account Login</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+	<div class="wrapper">
+		<header class="clear">
+			<h2>Account Login</h2>
+			<a href="register.html" class="link">Create New Account</a>
+		</header>
+		<form action="" method="post" class="form-login ani-fadeindown">
+		<label class="label">Username</label>
+		<input type="text" placeholder="Your username...">
+		<label class="label">Password</label>
+		<input type="password" placeholder="Your password..." class="last-input field-pass">
+		<div class="pass-icon"><i class="bx bx-hide bx-sm toggle-pass"></i></div>
+		<div class="label-inline">
+			<input type="checkbox" name="" id="">
+			<label for="">Remember my login information</label>
+		</div>
+		<button>Login <i class="bx bx-log-in bx-sm abs"></i></button>
+		<p class="text-center link-recover link-slide">Forgot password?</p>
+		</form>
+		<form action="" method="post" class="form-recover hide">
+		<div class="text-center"><i class="bx bx-key bx-lg bx-burst"></i></div>
+			<p class="mb2">Don’t worry! Enter your email address. We’ll send you password reset link.</p>
+		<label class="label">Email</label>
+		<input type="email" placeholder="Your email address...">
+		<button>Recover Account <i class="bx bx-lock-open bx-sm abs"></i></button>
+		<p class="text-center link-login link-slide">Back to Login</p>
+		</form>
+	</div>
+	<script>
+		const tgBtnPass	= document.querySelector('.toggle-pass');
+		const tgBtnRecv	= document.querySelector('.link-recover');
+		const tgBtnLog	= document.querySelector('.link-login');
+		const formTitle	= document.querySelector('h2');
+		const defTitle	= formTitle.innerText;
+		const formLogin	= document.querySelector('.form-login');
+		const formRecv	= document.querySelector('.form-recover');
+
+		tgBtnPass.addEventListener('click', function(){
+			let fieldPass	= document.querySelector('.field-pass');
+			if (tgBtnPass.classList.contains('bx-hide')){
+				fieldPass.type = 'text';
+				tgBtnPass.classList.replace('bx-hide', 'bx-show-alt');
+			}else{
+				fieldPass.type = 'password';
+				tgBtnPass.classList.replace('bx-show-alt', 'bx-hide');
+			}
+		});
+
+		tgBtnRecv.addEventListener('click', function(){
+			formLogin.classList.replace('ani-fadeindown','ani-fadeup');
+			formLogin.classList.add('hide');
+			formLogin.classList.remove('ani-fadeup');
+			formTitle.innerText	= 'Recover Password';
+			formRecv.classList.remove('hide');
+			formRecv.classList.add('ani-fadeinup');
+		});
+		tgBtnLog.addEventListener('click', function(){
+			formRecv.classList.replace('ani-fadeinup','ani-fadedown');
+			formRecv.classList.add('hide');
+			formTitle.innerText	= defTitle;
+			formLogin.classList.remove('hide');
+			formLogin.classList.add('ani-fadeindown');
+		});
+	</script>
+</body>
+</html>

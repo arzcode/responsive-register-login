@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Create New Account</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+	<div class="wrapper">
+		<header class="clear">
+			<a href="index.html" class="link">Account Login</a>
+			<h2 class="reg">Create New Account</h2>
+		</header>
+		<label class="label">Full Name</label>
+		<input type="text" placeholder="Your full name...">
+		<label class="label">Email</label>
+		<input type="email" placeholder="Your email...">
+		<label class="label">Password</label>
+		<input type="password" placeholder="Your password..." class="last-input field-pass">
+		<div class="pass-icon"><i class="bx bx-hide bx-sm toggle-pass"></i></div>
+		<div class="label-inline noflex">
+			<input type="checkbox" name="" id="">
+			<label for="">I agree to The Terms of Use, Privacy Policy and to receive news and updates.</label>
+		</div>
+		<button>Register Account <i class="bx bx-rocket bx-sm abs"></i></button>
+	</div>
+	<script>
+		const tgBtnPass	= document.querySelector('.toggle-pass');
+
+		tgBtnPass.addEventListener('click', function(){
+			let fieldPass	= document.querySelector('.field-pass');
+			if (tgBtnPass.classList.contains('bx-hide')){
+				fieldPass.type = 'text';
+				tgBtnPass.classList.replace('bx-hide', 'bx-show-alt');
+			}else{
+				fieldPass.type = 'password';
+				tgBtnPass.classList.replace('bx-show-alt', 'bx-hide');
+			}
+		});
+	</script>
+</body>
+</html>
